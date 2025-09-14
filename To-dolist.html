@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: aquamarine;
+      justify-content: center;
+    }
+    h1{
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 40px;
+      color: black;
+    }
+    input{
+      width: 300px;
+      height: 30px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 20px;
+      margin-left: 20px;
+      
+    }
+    button{
+      width: 100px;
+      height: 35px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 20px;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .container-task{
+      width: 400px;
+      height: auto;
+      background-color: rgb(179, 179, 179);
+      margin: auto;
+      margin-top: 20px;
+      border-radius: 10px;
+      padding: 20px;
+      margin-left: 850px;
+      border: 5px black,green,red,blue;
+     border: 20px solid; border-image: linear-gradient(to right, red, orange, yellow, green, blue) 1;
+    }
+    ol{
+      font-size: 20px;
+      color: black;
+    }
+    li{
+      margin-bottom: 10px;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div>
+    <h1>TO-DO List</h1>
+    <input type="text" id="taskInput" placeholder="Add a new task...">
+    <button onclick="addTask()">Add</button>
+    
+    <div class="container-task">
+      <h1>TaskList</h1>
+      <ol id="taskList"></ol>
+    </div>
+    
+
+  </div>
+  <script>
+    function addTask(){
+
+      const taskInput = document.getElementById('taskInput');
+const taskList = document.getElementById('taskList');
+const task = taskInput.value.trim();
+if(task ==='')return;{
+  const li = document.createElement('li');
+li.textContent =task;
+  taskList.appendChild(li);
+  taskInput.value='';
+
+
+}
+}
+
+   // duble click to remove task
+   document.getElementById('taskList').addEventListener('dblclick', function(e){
+    if(e.target && e.target.nodeName ==='LI'){
+      e.target.parentNode.removeChild(e.target);
+    }
+   }); 
+
+   
+
+
+   
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
